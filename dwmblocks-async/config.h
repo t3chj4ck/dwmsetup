@@ -17,11 +17,13 @@
 #define TRAILING_DELIMITER 0
 #define SCRIPT_DIR "/home/t3chj4ck/script/" 
 #define BLOCKS(X) \
-	X("", SCRIPT_DIR"weather.sh", 600, 0) \
-	X("", SCRIPT_DIR"cpu_usage.sh", 10, 0) \
-	X("", SCRIPT_DIR"power_status.sh", 10, 0) \
-	X("", SCRIPT_DIR"bat_capacity.sh", 60, 0) \
-    X("", SCRIPT_DIR"wifi_info.sh", 0, 3) \
-	X("", SCRIPT_DIR"clock.sh", 10, 0)
-
+    X("", "~/script/weather.sh", 600, 0) \
+    X("Bri: ", "~/script/backlight.sh", 0, 12) \
+    X("Vol: ", "~/script/get_vol.sh", 0, 11) \
+    X("WIFI: ", "~/script/wifi_info.sh", 6000, 10) \
+    X("CPU: ", "~/script/cpu_usage.sh", 30, 0) \
+    X("Pow: ", "~/script/power_status.sh", 30, 0) \
+    X("Bat: ", "~/script/bat_capacity.sh", 30, 0) \
+    X("Mem: ", "free -h | awk '/^Mem/ { print $3\"/\"$2 }' | sed s/i//g", 30, 0) \
+    X("", "date '+%b %d (%a) %I:%M%p'", 5, 0)
 #endif  // CONFIG_H
