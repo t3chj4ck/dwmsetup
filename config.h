@@ -80,16 +80,16 @@ static const char *screenst[] = { "sh", "-c", "maim -s | xclip -selection clipbo
 
 
 /* PipeWire (wpctl) */
-static const char *mutevol[]   = { "sh","-c","wpctl", "set-mute",   "@DEFAULT_AUDIO_SINK@", "toggle", "-RTMIN+11","dwmblocks", NULL };
-static const char *downvol[]   = { "sh","-c","wpctl", "set-volume", "@DEFAULT_AUDIO_SINK@", "5%-", "-RTMIN+11","dwmblocks", NULL };
-static const char *upvol[]   = { "sh","-c","wpctl", "set-volume", "@DEFAULT_AUDIO_SINK@", "5%+", "-RTMIN+11","dwmblocks", NULL };
+static const char *mutevol[]   = { "sh","-c","wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle && pkill -RTMIN+11 dwmblocks", NULL };
+static const char *downvol[]   = { "sh","-c","wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%- && pkill -RTMIN+11 dwmblocks", NULL };
+static const char *upvol[]   = { "sh","-c","wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+ && pkill -RTMIN+11 dwmblocks", NULL };
 
 
 
 
 /* (brightnessctl) */
-static const char *brupcmd[]   = { "sh","-c","brightnessctl", "set", "10%+","&&","pkill", "-RTMIN+12","dwmblocks", NULL };
-static const char *brdowncmd[]   = { "sh","-c","brightnessctl", "set", "10%-","&&","pkill", "-RTMIN+12","dwmblocks", NULL };
+static const char *brupcmd[]   = { "sh","-c","brightnessctl set 10%+ && pkill -RTMIN+12 dwmblocks", NULL };
+static const char *brdowncmd[]   = { "sh","-c","brightnessctl set 10%- && pkill -RTMIN+12 dwmblocks", NULL };
 
 
 static const char *clipmenucmd[] = { "clipmenu", NULL};
